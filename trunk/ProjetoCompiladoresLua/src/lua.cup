@@ -81,18 +81,18 @@ terminal String RELOP;
 
 /* Precedência e Associatividade de Terminais */
 
-precedence left or;
-precedence left and;
-precedence left <, >, <=, >=, ~=, ==;
-precedence rigth ..;
-precedence left +, -;
-precedence left *, /, %;
-precedence left not, #, -;
-precedence rigth ^;
+precedence left OR;
+precedence left AND;
+precedence left RELOP;
+precedence right CONCAT;
+precedence left PLUS, MINUS;
+precedence left TIMES, DIVIDE, MOD;
+precedence left NOT, POUND, MINUS;
+precedence right EXP;
      
 
 /* Gramática */
 
-start with Bloco;
+start with Trecho;
 
 
