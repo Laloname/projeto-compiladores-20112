@@ -1,3 +1,4 @@
+/* Declarações Preliminares */
 import java_cup.runtime.*;
 
 parser code {:
@@ -63,20 +64,35 @@ parser code {:
 scan with {: return luaLexer.yylex(); :}; 
 
 
-/* DeclaraÔøΩ‚Ä∫es de Terminais e N‚Äπo-Terminais */
+/* Declarações de Terminais e Não-Terminais */
+
+terminal		LPAREN, RPAREN, LBRACK, RBRACK, LCURLY, RCURLY,
+				COLON, SEMICOL, COMMA, DOT, POUND, CONCAT,
+				ATT, PLUS, MULT, DIVIDE, MINUS, EXP, MOD, 
+				LOCAL, FUNCTION, RETURN, FOR, REPEAT, UNTIL, WHILE,
+				DO, IN, BREAK, OR, AND, NOT, IF, THEN, ELSE, ELSEIF,
+				END, TRUE, FALSE, NIL;				
+
+terminal String ID, STRING, NUMERO;
+terminal String RELOP;
+
+/* non terminal - APENSA QUANDO ESCREVER A GRAMÁTICA*/
 
 
-/* PrecedÔøΩncia e Associatividade de Terminais */
+/* Precedência e Associatividade de Terminais */
 
+precedence left or;
+precedence left and;
+precedence left <, >, <=, >=, ~=, ==;
+precedence rigth ..;
+precedence left +, -;
+precedence left *, /, %;
+precedence left not, #, -;
+precedence rigth ^;
+     
 
-/* Gram‚Ä°tica */
-	 precedence left or;
-     precedence left and;
-     precedence left <, >, <=, >=, ~=, ==;
-     precedence rigth ..;
-     precedence left +, -;
-     precedence left *, /, %;
-     precedence left not, #, -;
-     precedence rigth ^;
+/* Gramática */
+
+start with Bloco;
 
 
