@@ -76,7 +76,12 @@ terminal		LPAREN, RPAREN, LBRACK, RBRACK, LCURLY, RCURLY,
 terminal String ID, STRING, NUMERO;
 terminal String RELOP;
 
-/* non terminal - APENSA QUANDO ESCREVER A GRAMÁTICA*/
+non terminal	Trecho, Bloco, Comando, ComandoCondicional, ComandoIterativo,
+				ComandoAtribuicao, ComandoFuncao, UltimoComando, NomeDaFuncao,
+				ListaVar, Var, ListaDeNomes, ListaExpressao, Expressao,
+				ExpressaoPrefixo, ChamadaDeFuncao, Args, Funcao, CorpoDaFuncao,
+				ListaParametro, ConstrutorTabela, ListaDeCampos, Campo,
+				SeparadorDeCampos, OperadorBinario, OperadorUnario;
 
 
 
@@ -284,5 +289,3 @@ OperadorUnaria ::= NOT {: RESULT = "not"; :}
 				| MINUS {: RESULT = "-"; :}
 				| POUND {: RESULT = "#"; :}
 				;
-
-				
