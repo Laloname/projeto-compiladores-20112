@@ -63,13 +63,20 @@ parser code {:
 scan with {: return luaLexer.yylex(); :}; 
 
 
-/* Declarações de Terminais e Não-Terminais */
+/* DeclaraÔøΩ‚Ä∫es de Terminais e N‚Äπo-Terminais */
 
 
-/* Precedência e Associatividade de Terminais */
+/* PrecedÔøΩncia e Associatividade de Terminais */
 
 
-/* Gramática */
-
+/* Gram‚Ä°tica */
+	 precedence left or;
+     precedence left and;
+     precedence left <, >, <=, >=, ~=, ==;
+     precedence rigth ..;
+     precedence left +, -;
+     precedence left *, /, %;
+     precedence left not, #, -;
+     precedence rigth ^;
 
 
