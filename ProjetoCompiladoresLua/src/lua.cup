@@ -79,6 +79,7 @@ terminal String RELOP;
 /* non terminal - APENSA QUANDO ESCREVER A GRAMÁTICA*/
 
 
+
 /* Precedência e Associatividade de Terminais */
 
 precedence left OR;
@@ -93,6 +94,195 @@ precedence right EXP;
 
 /* Gramática */
 
-start with Trecho;
+/* =================== NOT OK =================== */ ==========================================================
+trecho ::= {comando [`;´]} [ultimocomando [`;´]]
+Trecho ::= $$$$
 
+/* ===================== OK ===================== */
+bloco ::= trecho
+Bloco ::= Trecho
+		;
 
+/* ===================== OK ===================== */
+comando ::=  listavar `=´ listaexp | 
+		 chamadadefuncao | 
+		 do bloco end | 
+		 while exp do bloco end | 
+		 repeat bloco until exp | 
+		 if exp then bloco {elseif exp then bloco} [else bloco] end | 
+		 for Nome `=´ exp `,´ exp [`,´ exp] do bloco end | 
+		 for listadenomes in listaexp do bloco end | 
+		 function nomedafuncao corpodafuncao | 
+		 local function Nome corpodafuncao | 
+		 local listadenomes [`=´ listaexp]
+Comando ::= DO Bloco END
+		| ComandoIterativo
+		| ComandoCondicional
+		| ComandoFuncao
+		| ComandoAtribuicao
+		;
+
+/* =================== NOT OK =================== */ ==========================================================
+ComandoCondicional ::= IF Expressao $$$$$$$$$$
+					;
+
+/* =================== NOT OK =================== */ ==========================================================
+ComandoIterativo ::= WHILE Expressao DO Bloco END
+					| REPEAT Bloco UNTIL Expressao
+					| FOR $$$$$$$$$
+					| FOR ListaDeNomes IN ListaExpressao DO Bloco END
+					;
+
+/* =================== NOT OK =================== */ ==========================================================
+ComandoAtribuicao ::= ListaVar ATT ListaExp
+					| LOCAL ListaDeNomes $$$$$$
+
+/* ===================== OK ===================== */
+ComandoFuncao ::= ChamadaDeFuncao
+				| FUNCTION NomeDaFuncao CorpoDaFuncao
+				| LOCAL FUNCTION ID CorpoDaFuncao
+				;
+
+/* ===================== OK ===================== */
+ultimocomando ::= return [listaexp] | break
+UltimoComando ::= RETURN
+				| RETURN ListaExpressao
+				| BREAK
+				;
+
+/* =================== NOT OK =================== */ ==========================================================
+nomedafuncao ::= Nome {`.´ Nome} [`:´ Nome]
+NomeDaFuncao ::= 
+
+/* =================== NOT OK =================== */ +++++++++++++=============================================
+listavar ::= var {`,´ var}
+ListaVar ::= Var
+			| Var COMMA ListaVar
+			;
+
+/* ===================== OK ===================== */
+var ::=  Nome | expprefixo `[´ exp `]´ | expprefixo `.´ Nome
+Var ::= ID
+		| ExpressaoPrefixo LBRACK Expressao RBRACK
+		| ExpressaoPrefixo DOT ID
+		;
+
+/* =================== NOT OK =================== */ +++++++++++++=============================================
+listadenomes ::= Nome {`,´ Nome}
+ListaDeNomes ::= ID
+				| ID COMMA ListaDeNomes
+				;
+
+/* ===================== OK ===================== */
+listaexp ::= {exp `,´} exp
+ListaExpressao ::= ListaExpressao COMMA Expressao
+				| Expressao
+				;
+
+/* =================== NOT OK =================== */ ==========================================================
+exp ::=  nil | false | true | Numero | Cadeia | `...´ | funcao | 
+		 expprefixo | construtortabela | exp opbin exp | opunaria exp
+Expressao ::= NIL {: RESULT = null; :}
+			| TRUE {: RESULT = true; :}
+			| FALSE {: RESULT = false; :}
+			| NUMERO
+			| STRING
+			| Funcao
+			| ExpressaoPrefixo
+			| ConstrutorTabela
+			| Expressao OperadorBinario Expressao
+			| OperadorUnario Expressao
+			;
+
+/* ===================== OK ===================== */
+expprefixo ::= var | chamadadefuncao | `(´ exp `)´
+ExpressaoPrefixo ::= Var
+				| ChamadaDeFuncao
+				| LPAREN Expressao RPAREN
+				;
+
+/* ===================== OK ===================== */
+chamadadefuncao ::=  expprefixo args | expprefixo `:´ Nome args 
+ChamadaDeFuncao ::= ExpressaoPrefixo Args
+				| ExpressaoPrefixo COLON ID Args
+				;
+
+/* ===================== OK ===================== */
+args ::=  `(´ [listaexp] `)´ | construtortabela | Cadeia 
+Args ::= LPAREN ListaExpressao RPAREN
+		| LPAREN RPAREN
+		| ConstrutorTabela
+		| Cadeia
+		;
+
+/* ===================== OK ===================== */
+funcao ::= function corpodafuncao
+Funcao ::= FUNCTION CorpoDaFuncao
+		;
+
+/* ===================== OK ===================== */
+corpodafuncao ::= `(´ [listapar] `)´ bloco end
+CorpoDaFuncao ::= LPAREN ListaParametro RPAREN Bloco END
+				| LPAREN RPAREN Bloco END
+				;
+
+/* =================== NOT OK =================== */ ==========================================================
+listapar ::= listadenomes [`,´ `...´] | `...´
+ListaParametro ::= $$$$$$$ 
+
+/* ===================== OK ===================== */
+construtortabela ::= `{´ [listadecampos] `}´
+ConstrutorTabela ::= LCURLY ListaDeCampos RCURLY
+					| LCURLY RCURLY
+					;
+
+/* =================== NOT OK =================== */ +++++++++++++++++++ ======================================
+listadecampos ::= campo {separadordecampos campo} [separadordecampos]
+ListaDeCampos ::= Campo
+				| Campo SeparadorDeCampos ListaDeCampos
+				| Campo SeparadorDeCampos
+				| Campo SeparadorDeCampos ListaDeCampos SeparadorDeCampos
+				;
+
+/* ===================== OK ===================== */		 
+campo ::= `[´ exp `]´ `=´ exp | Nome `=´ exp | exp
+Campo ::= LBRACK Expressao RBRACK ATT Expressao
+		| ID ATT Expressao
+		| Expressao
+		;
+
+/* ===================== OK ===================== */
+separadordecampos ::= `,´ | `;´
+SeparadorDeCampos ::= COMMA {: RESULT = ","; :}
+					| SEMICOL {: RESULT = ";"; :}
+					;
+
+/* ===================== OK ===================== */
+opbin ::= `+´ | `-´ | `*´ | `/´ | `^´ | `%´ | `..´ | 
+		 `<´ | `<=´ | `>´ | `>=´ | `==´ | `~=´ | 
+		 and | or
+OperadorBinario ::= PLUS {: RESULT = "+"; :}
+				| MINUS {: RESULT = "-"; :}
+				| MULT {: RESULT = "*"; :}
+				| DIVIDE {: RESULT = "/"; :}
+				| EXP {: RESULT = "^"; :}
+				| MOD {: RESULT = "%"; :}
+				| CONCAT {: RESULT = ".."; :}
+				| LT {: RESULT = "<"; :}
+				| GT {: RESULT = ">"; :}
+				| LE {: RESULT = "<="; :}
+				| GE {: RESULT = ">="; :}
+				| NEQUAL {: RESULT = "~="; :}
+				| EQUAL {: RESULT = "=="; :}
+				| AND {: RESULT = "and"; :}
+				| OR {: RESULT = "or"; :}
+				;
+
+/* ===================== OK ===================== */
+opunaria ::= `-´ | not | `#´
+OperadorUnaria ::= NOT {: RESULT = "not"; :}
+				| MINUS {: RESULT = "-"; :}
+				| POUND {: RESULT = "#"; :}
+				;
+
+				
