@@ -40,7 +40,7 @@ COMMA			= ,
 DOT				= \.
 POUND			= #
 CONCAT			= \.\.
-// EQATT			= \=
+ATT				= \=
 
 /* VARARG			= ... */
 
@@ -113,6 +113,7 @@ WhiteSpace      = {LineTerminator} | [ \t\f]
 "false" { return symbol(LuaSym.FALSE); }
 "nil" { return symbol(LuaSym.NIL); }
 
+{ATT} { return symbol(LuaSym.ATT); }
 {RELOP} { return symbol(LuaSym.RELOP, yytext()); }
 {ARITOP} { return symbol(LuaSym.ARITOP, yytext()); }
 
@@ -133,8 +134,6 @@ WhiteSpace      = {LineTerminator} | [ \t\f]
 {DOT} { return symbol(LuaSym.DOT); }
 {POUND} { return symbol(LuaSym.POUND); }
 {CONCAT} { return symbol(LuaSym.CONCAT); }
-
-// {EQATT} { return symbol(LuaSym.EQATT); }
 
 {ID} { return symbol(LuaSym.ID, yytext()); }
 {STRING} { return symbol(LuaSym.STRING, yytext()); }
