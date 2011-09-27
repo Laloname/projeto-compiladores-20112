@@ -1,0 +1,15 @@
+Para executar tudo de uma vez, JFlex e JCup seguir os passos abaixo:
+
+1. Executar o JFlex no arquivo *.flex;
+2. Executar o arquivo java_cup.Main com entrada o arquivo *.cup;
+3. Compilar o arquivo LuaLexer.java;
+4. Compilar o arquivo Main.java que est‡ no src do projeto;
+5. Por fim: Executar o arquivo Main (compilado anteriormente) com entrada um arquivo 
+   de texto contendo o c—digo em lua.
+
+Para o projeto:
+1. jflex lua.flex 
+2. java java_cup.Main < lua.cup 
+3. javac LuaLexer.java 
+4. javac Main.java
+5. java Main teste.txt
