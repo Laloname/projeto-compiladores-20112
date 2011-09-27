@@ -60,7 +60,6 @@ MULT			= \*
 DIVIDE			= \/
 EXP				= \^
 MOD				= \%
-ARITOP			= {PLUS} | {MINUS} | {MULT} | {DIVIDE} | {EXP} | {MOD}
 
 LETRA 			= [a-zA-Z]
 LETRA_			= {LETRA} | _
@@ -115,12 +114,12 @@ WhiteSpace      = {LineTerminator} | [ \t\f]
 
 {ATT} { return symbol(LuaSym.ATT); }
 {RELOP} { return symbol(LuaSym.RELOP, yytext()); }
-{ARITOP} { return symbol(LuaSym.ARITOP, yytext()); }
-
-/* {PLUS} { return symbol(LuaSym.PLUS); }
+{PLUS} { return symbol(LuaSym.PLUS); }
 {MULT} { return symbol(LuaSym.MULT); }
 {DIVIDE} { return symbol(LuaSym.DIVIDE); }
-{MINUS} { return symbol(LuaSym.MINUS); } */
+{MINUS} { return symbol(LuaSym.MINUS); }
+{EXP} { return symbol(LuaSym.EXP); }
+{MOD} { return symbol(LuaSym.MOD); }
 
 {LPAREN} { return symbol(LuaSym.LPAREN); }
 {RPAREN} { return symbol(LuaSym.RPAREN); }
