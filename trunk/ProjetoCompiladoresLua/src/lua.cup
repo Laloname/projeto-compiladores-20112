@@ -88,15 +88,20 @@ non terminal	Trecho, Bloco, Comando, ComandoCondicional, ComandoIterativo,
 
 /* Precedência e Associatividade de Terminais */
 
+precedence left COMMA;
+precedence left SEMICOL;
+precedence left ELSE;
+precedence left END;
 precedence left OR;
 precedence left AND;
-precedence left RELOP;
+precedence left RELOP, EQUAL, NEQUAL, LT, GT, LE, GE;
 precedence right CONCAT;
 precedence left PLUS, MINUS;
 precedence left MULT, DIVIDE, MOD;
 precedence left NOT, POUND, MINUS;
 precedence right EXP;
-     
+
+
 
 /* Gramática */
 
@@ -109,8 +114,7 @@ Trecho ::= ListaComandos
 		| UltimoComando SEMICOL
 		;
 		
-ListaComandos ::= 
-				| Comando
+ListaComandos ::= Comando
 				| Comando SEMICOL
 				| ListaComandos
 				| ListaComandos SEMICOL
