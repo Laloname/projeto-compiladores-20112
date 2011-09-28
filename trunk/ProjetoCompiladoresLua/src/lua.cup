@@ -62,7 +62,7 @@ parser code {:
     
 :};
 
-scan with {: return luaLexer.yylex(); :}; 
+//scan with {: return luaLexer.yylex(); :}; 
 
 
 /* Declarações de Terminais e Não-Terminais */
@@ -116,7 +116,7 @@ Trecho ::= ListaComandos
 		
 ListaComandos ::= Comando
 				| Comando SEMICOL
-				| ListaComandos
+	//			| ListaComandos
 				| ListaComandos SEMICOL
 				;
 
@@ -153,7 +153,7 @@ ComandoCondicional ::= IF Expressao THEN Bloco END
 					;
 					
 ListaEcs ::= Ecs
-			| ListaEcs
+	//		| ListaEcs
 			;
 
 Ecs ::= ELSEIF Expressao THEN Bloco
