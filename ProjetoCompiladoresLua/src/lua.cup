@@ -89,6 +89,7 @@ non terminal	Trecho, Bloco, Comando, ComandoCondicional, ComandoIterativo,
 /* Precedência e Associatividade de Terminais */
 
 precedence left ID;
+precedence left FUNCTION;
 precedence left COMMA;
 precedence left SEMICOL;
 precedence left ELSE;
