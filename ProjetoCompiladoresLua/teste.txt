@@ -1,0 +1,277 @@
+    function fatorial (n)
+
+           if n == 0 then
+
+               return 1
+
+           else
+
+               return n * fatorial(n-1)
+
+           end
+
+end
+
+a = 2
+
+b = 5
+
+-- imprime o valor de a, 2.
+
+if a == 2 then -- exemplo de comando condicional com apenas a estrutura if-then-end.
+
+  print(a)
+
+end
+
+-- imprime o valor de b, 5.
+
+if a > b then -- exemplo de comando condicional com else.
+
+  print(a)
+
+else
+
+  print(b)
+
+end
+
+-- imprime "a é igual a 4"
+
+a = 4
+
+if a > b then
+
+  print(a)
+
+elseif a == 4 then -- exemplo de comando condicional com elseif
+
+  print("a é igual a 4")
+
+end
+
+-- imprime "if aninhado"
+
+if a > b then
+
+  print(a)
+
+else
+
+  if a == 4 then
+
+     print("if aninhado")
+
+  end
+
+end
+
+function FibIterativo(n)
+
+        fibs={[0]=0, 1, 1}    --   variaveis globais, retorno da função
+
+        for i=3, n do
+
+            fibs[i] = fibs[i-1] + fibs[i-2]
+
+        end
+
+        return fibs[n]
+
+    end
+    
+    local var1 = 0
+
+while var1 < 10 do
+
+print('O valor de var1 e: '..var1)
+
+var1 = var1 + 1
+
+end
+
+local var1 = 0
+
+repeat
+
+print('O valor de var1 e: '..var1)
+
+var1 = var1 + 1
+
+    until var1 > 10
+    
+    -- Suporta atribuição simples e múltipla
+
+i = 3
+
+print ("Valor de i:" ,i)
+
+i, b = i+1, 20
+
+print ("Novo valor de i:" ,i)
+
+print ("Valor de b:" , b)
+
+--A atribuição primeiro avalia todas as suas expressões e somente depois é que a atribuição é realizada
+
+x, y, a = 1, 2,{0,1}
+
+print ("Atuais Valores de x, y, a[1], a[2]:" , x, y, a[1], a[2])
+
+x, y,a[x] = y, x, x+1
+
+print ("Novos valores de x, y, a[1], a[2]:" , x, y, a[1], a[2])
+
+a = 10
+
+b = 12
+
+c = 23
+
+d = 2
+
+-- soma, imprime "a + b = 22"
+
+soma = a + b
+
+print("a + b = ", soma)
+
+-- subtração, imprime "c - d = 21"
+
+subtracao = c - d
+
+print("c - d = ", subtracao)
+
+-- multiplicação, imprime "a * b = 120"
+
+multiplicacao = a * b
+
+print("a * b = ", multiplicacao)
+
+-- divisão, imprime "a / d = 5"
+
+divisao = a / d
+
+print("a / d = ", divisao)
+
+-- exponencial, imprime "a ^ d = 100"
+
+exponencial = a ^ d
+
+print("a ^ d = ", exponencial)
+
+-- módulo, imprime "13 % 5 = 3"
+
+modulo = 13 % 5
+
+print("13 % 5 = ", modulo)
+
+-- negação, imprime "-10"
+
+print(-a) -- funciona apenas se a for um valor numérico
+
+-- condição satisfeita, pois a é diferente de false ou de nil.
+
+a = 1
+
+b = 1
+
+if a then
+
+  print(a)
+
+end
+
+-- condição não satisfeita pois a negação de qualquer número é false.
+
+if not a then
+
+  print(a)
+
+end
+
+b = 2
+
+if a == 1 or b == 2 then
+
+  print("a igual a 1 ou b igual a 2")
+
+end
+
+-- mesmo exemplo acima mudando o operador or pelo operador and.
+
+if a == 1 and b == 2 then
+
+  print("a igual a 1 ou b igual a 2")
+
+end
+
+--Estes operadores sempre possuem como resultado false ou true
+
+a, b, c = 1, 2, 2
+
+print("1 = 2? ", a == b, "1 ~= 2? ", a ~= b)
+
+print("1 < 2? ", a < b, "1 > 2? ", a > b)
+
+print("1 <= 2? ",a <= b, "2 >= 2? ", c >= b)
+
+--tabela unidimensional
+
+uni = {} --definindo uma tabela de 1 dimensão vazia
+
+print(uni[1])
+
+uni = {"a","b"} --definindo uma tabela de 1 dimensão com 2 elementos
+
+print(uni[1], uni[2], uni[3])
+
+uni[3] = "c" --o valor 'nil' é o default quando não definido em alguma posição do array
+
+print(uni[1], uni[2], uni[3])
+
+--tabela bidimensional
+N=3
+
+    mt = {}          -- criando uma matriz
+
+    for i=1,N do
+
+         mt[i] = {}     --  criando uma linha de tamanho i
+
+         for j=1,i do
+
+               mt[i][j] = 10
+
+         end
+
+    end
+
+print("Abaixo segue uma matriz triangular. As posições preenxidas com 'nil' não foram inicializadas na criação da matriz:")
+
+    for i=1,N do
+
+           print(mt[i][1],mt[i][2],mt[i][3])
+
+    end
+    
+    --Considerando a função abaixo (que incrementa os valores de um ponto cartesiano x-y)
+
+function translada (x, y, dx, dy)
+
+          return x+dx, y+dy
+
+end
+
+local i = 1
+while a[i] do
+        if a[i] == v then
+
+             posição = i
+
+             break
+
+       end
+
+       i = i + 1
+           end
