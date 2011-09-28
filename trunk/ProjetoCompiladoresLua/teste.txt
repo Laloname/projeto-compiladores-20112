@@ -36,7 +36,7 @@ else
 
 end
 
--- imprime "a é igual a 4"
+-- imprime "a ï¿½ igual a 4"
 
 a = 4
 
@@ -46,7 +46,7 @@ if a > b then
 
 elseif a == 4 then -- exemplo de comando condicional com elseif
 
-  print("a é igual a 4")
+  print("a ï¿½ igual a 4")
 
 end
 
@@ -68,7 +68,7 @@ end
 
 function FibIterativo(n)
 
-        fibs={[0]=0, 1, 1}    --   variaveis globais, retorno da função
+        fibs={[0]=0, 1, 1}    --   variaveis globais, retorno da funï¿½ï¿½o
 
         for i=3, n do
 
@@ -100,7 +100,7 @@ var1 = var1 + 1
 
     until var1 > 10
     
-    -- Suporta atribuição simples e múltipla
+    -- Suporta atribuicao simples e mï¿½ltipla
 
 i = 3
 
@@ -112,7 +112,7 @@ print ("Novo valor de i:" ,i)
 
 print ("Valor de b:" , b)
 
---A atribuição primeiro avalia todas as suas expressões e somente depois é que a atribuição é realizada
+--A atribuiï¿½ï¿½o primeiro avalia todas as suas expressï¿½es e somente depois ï¿½ que a atribuiï¿½ï¿½o ï¿½ realizada
 
 x, y, a = 1, 2,{0,1}
 
@@ -136,19 +136,19 @@ soma = a + b
 
 print("a + b = ", soma)
 
--- subtração, imprime "c - d = 21"
+-- subtraï¿½ï¿½o, imprime "c - d = 21"
 
 subtracao = c - d
 
 print("c - d = ", subtracao)
 
--- multiplicação, imprime "a * b = 120"
+-- multiplicaï¿½ï¿½o, imprime "a * b = 120"
 
 multiplicacao = a * b
 
 print("a * b = ", multiplicacao)
 
--- divisão, imprime "a / d = 5"
+-- divisï¿½o, imprime "a / d = 5"
 
 divisao = a / d
 
@@ -160,17 +160,17 @@ exponencial = a ^ d
 
 print("a ^ d = ", exponencial)
 
--- módulo, imprime "13 % 5 = 3"
+-- mï¿½dulo, imprime "13 % 5 = 3"
 
 modulo = 13 % 5
 
 print("13 % 5 = ", modulo)
 
--- negação, imprime "-10"
+-- negaï¿½ï¿½o, imprime "-10"
 
-print(-a) -- funciona apenas se a for um valor numérico
+print(-a) -- funciona apenas se a for um valor numï¿½rico
 
--- condição satisfeita, pois a é diferente de false ou de nil.
+-- condiï¿½ï¿½o satisfeita, pois a ï¿½ diferente de false ou de nil.
 
 a = 1
 
@@ -182,7 +182,7 @@ if a then
 
 end
 
--- condição não satisfeita pois a negação de qualquer número é false.
+-- condiï¿½ï¿½o nï¿½o satisfeita pois a negaï¿½ï¿½o de qualquer nï¿½mero ï¿½ false.
 
 if not a then
 
@@ -218,15 +218,15 @@ print("1 <= 2? ",a <= b, "2 >= 2? ", c >= b)
 
 --tabela unidimensional
 
-uni = {} --definindo uma tabela de 1 dimensão vazia
+uni = {} --definindo uma tabela de 1 dimensï¿½o vazia
 
 print(uni[1])
 
-uni = {"a","b"} --definindo uma tabela de 1 dimensão com 2 elementos
+uni = {"a","b"} --definindo uma tabela de 1 dimensï¿½o com 2 elementos
 
 print(uni[1], uni[2], uni[3])
 
-uni[3] = "c" --o valor 'nil' é o default quando não definido em alguma posição do array
+uni[3] = "c" --o valor 'nil' ï¿½ o default quando nï¿½o definido em alguma posiï¿½ï¿½o do array
 
 print(uni[1], uni[2], uni[3])
 
@@ -247,7 +247,7 @@ N=3
 
     end
 
-print("Abaixo segue uma matriz triangular. As posições preenxidas com 'nil' não foram inicializadas na criação da matriz:")
+print("Abaixo segue uma matriz triangular. As posiï¿½ï¿½es preenxidas com 'nil' nï¿½o foram inicializadas na criaï¿½ï¿½o da matriz:")
 
     for i=1,N do
 
@@ -255,7 +255,7 @@ print("Abaixo segue uma matriz triangular. As posições preenxidas com 'nil' não 
 
     end
     
-    --Considerando a função abaixo (que incrementa os valores de um ponto cartesiano x-y)
+    --Considerando a funï¿½ï¿½o abaixo (que incrementa os valores de um ponto cartesiano x-y)
 
 function translada (x, y, dx, dy)
 
@@ -267,7 +267,7 @@ local i = 1
 while a[i] do
         if a[i] == v then
 
-             posição = i
+             posiÃ§Ã£o = i
 
              break
 
