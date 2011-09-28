@@ -7,7 +7,12 @@ import java_cup.runtime.*;
 %column
 %cup
    
-%{   
+%{
+
+	public static void main(String[] args) {
+		
+	}
+
     private Symbol symbol(int type) {
         return new Symbol(type, yyline, yycolumn);
     }
@@ -80,63 +85,63 @@ WhiteSpace      = {LineTerminator} | [ \t\f]
 %%
 /* ------------------------Regras Léxicas---------------------- */
    
-"local" { return symbol(LuaSym.LOCAL); }
+"local" { return symbol(sym.LOCAL); }
 
 /* Funções */
-"function" { return symbol(LuaSym.FUNCTION); }
-"return" { return symbol(LuaSym.RETURN); }
+"function" { return symbol(sym.FUNCTION); }
+"return" { return symbol(sym.RETURN); }
 
 /* Comandos Iterativos */
-"for" { return symbol(LuaSym.FOR); }
-"repeat" { return symbol(LuaSym.REPEAT); }
-"until" { return symbol(LuaSym.UNTIL); }
-"while" { return symbol(LuaSym.WHILE); }
-"do" { return symbol(LuaSym.DO); }
-"in" { return symbol(LuaSym.IN); }
-"break" { return symbol(LuaSym.BREAK); }
+"for" { return symbol(sym.FOR); }
+"repeat" { return symbol(sym.REPEAT); }
+"until" { return symbol(sym.UNTIL); }
+"while" { return symbol(sym.WHILE); }
+"do" { return symbol(sym.DO); }
+"in" { return symbol(sym.IN); }
+"break" { return symbol(sym.BREAK); }
 
 /* Operadores Lógicos */
-"or" { return symbol(LuaSym.OR); }
-"and" { return symbol(LuaSym.AND); }
-"not" { return symbol(LuaSym.NOT); }
+"or" { return symbol(sym.OR); }
+"and" { return symbol(sym.AND); }
+"not" { return symbol(sym.NOT); }
 
 /* Comando condicional */
-"if" { return symbol(LuaSym.IF); }
-"then" { return symbol(LuaSym.THEN); }
-"else" { return symbol(LuaSym.ELSE); }
-"elseif" { return symbol(LuaSym.ELSEIF); }
-"end" { return symbol(LuaSym.END); }
+"if" { return symbol(sym.IF); }
+"then" { return symbol(sym.THEN); }
+"else" { return symbol(sym.ELSE); }
+"elseif" { return symbol(sym.ELSEIF); }
+"end" { return symbol(sym.END); }
 
 /* Mais Alguns Literais */
-"true" { return symbol(LuaSym.TRUE); }
-"false" { return symbol(LuaSym.FALSE); }
-"nil" { return symbol(LuaSym.NIL); }
+"true" { return symbol(sym.TRUE); }
+"false" { return symbol(sym.FALSE); }
+"nil" { return symbol(sym.NIL); }
 
-{ATT} { return symbol(LuaSym.ATT); }
-{RELOP} { return symbol(LuaSym.RELOP, yytext()); }
-{PLUS} { return symbol(LuaSym.PLUS); }
-{MULT} { return symbol(LuaSym.MULT); }
-{DIVIDE} { return symbol(LuaSym.DIVIDE); }
-{MINUS} { return symbol(LuaSym.MINUS); }
-{EXP} { return symbol(LuaSym.EXP); }
-{MOD} { return symbol(LuaSym.MOD); }
+{ATT} { return symbol(sym.ATT); }
+{RELOP} { return symbol(sym.RELOP, yytext()); }
+{PLUS} { return symbol(sym.PLUS); }
+{MULT} { return symbol(sym.MULT); }
+{DIVIDE} { return symbol(sym.DIVIDE); }
+{MINUS} { return symbol(sym.MINUS); }
+{EXP} { return symbol(sym.EXP); }
+{MOD} { return symbol(sym.MOD); }
 
-{LPAREN} { return symbol(LuaSym.LPAREN); }
-{RPAREN} { return symbol(LuaSym.RPAREN); }
-{LBRACK} { return symbol(LuaSym.LBRACK); }
-{RBRACK} { return symbol(LuaSym.RBRACK); }
-{LCURLY} { return symbol(LuaSym.LCURLY); }
-{RCURLY} { return symbol(LuaSym.RCURLY); }
-{COLON} { return symbol(LuaSym.COLON); }
-{SEMICOL} { return symbol(LuaSym.SEMICOL); }
-{COMMA} { return symbol(LuaSym.COMMA); }
-{DOT} { return symbol(LuaSym.DOT); }
-{POUND} { return symbol(LuaSym.POUND); }
-{CONCAT} { return symbol(LuaSym.CONCAT); }
+{LPAREN} { return symbol(sym.LPAREN); }
+{RPAREN} { return symbol(sym.RPAREN); }
+{LBRACK} { return symbol(sym.LBRACK); }
+{RBRACK} { return symbol(sym.RBRACK); }
+{LCURLY} { return symbol(sym.LCURLY); }
+{RCURLY} { return symbol(sym.RCURLY); }
+{COLON} { return symbol(sym.COLON); }
+{SEMICOL} { return symbol(sym.SEMICOL); }
+{COMMA} { return symbol(sym.COMMA); }
+{DOT} { return symbol(sym.DOT); }
+{POUND} { return symbol(sym.POUND); }
+{CONCAT} { return symbol(sym.CONCAT); }
 
-{ID} { return symbol(LuaSym.ID, yytext()); }
-{STRING} { return symbol(LuaSym.STRING, yytext()); }
-{NUMERO} { return symbol(LuaSym.NUMERO, yytext());}
+{ID} { return symbol(sym.ID, yytext()); }
+{STRING} { return symbol(sym.STRING, yytext()); }
+{NUMERO} { return symbol(sym.NUMERO, yytext());}
 
 {WhiteSpace} { }
 {LineTerminator} { }
